@@ -4,7 +4,7 @@ import BreadCrumbs from "@/app/components/breadcrumbs"
 import SmallWithSocial from "@/app/components/footer"
 import Header from "@/app/components/heading"
 import SidebarWithHeader from "@/app/components/sidebar"
-import { Box, Button, Center, Heading, Stack, Text } from "@chakra-ui/react"
+import { Box, Heading, Text } from "@chakra-ui/react"
 
 
 interface LinkItemProps {
