@@ -59,7 +59,7 @@ export default function SmallWithSocial() {
                 spacing={4}
                 justify={{ base: 'center', md: 'space-between' }}
                 align={{ base: 'center', md: 'center' }}>
-                <Text>© 2025 Ini Pake Chakra. All rights reserved</Text>
+                <Text>© 2025 Ini diuat jakwan. All rights reserved</Text>
                 <Stack direction={'row'} spacing={6}>
                     <SocialButton label={'Twitter'} href={'#'}>
                         <FaTwitter />
