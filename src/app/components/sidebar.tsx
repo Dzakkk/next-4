@@ -26,6 +26,7 @@ import {
     FiMenu,
     FiBell,
     FiChevronDown,
+    FiUser,
 } from 'react-icons/fi'
 import { IconType } from 'react-icons'
 import Link from 'next/link'
@@ -55,7 +56,7 @@ const LinkItems: Array<LinkItemProps> = [
     { name: 'Home', icon: FiHome, location: '/home' },
     //   { name: 'Trending', icon: FiTrendingUp, location: null },
     //   { name: 'Explore', icon: FiCompass, location: null },
-    //   { name: 'Favourites', icon: FiStar, location: null },
+    { name: 'User', icon: FiUser, location: '/user' },
     { name: 'Settings', icon: FiSettings, location: '/setting' },
 ]
 
