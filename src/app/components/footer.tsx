@@ -47,8 +47,9 @@ export default function SmallWithSocial() {
     return (
         <Box
             bottom="0"
+            mb={"2"}
             position={'fixed'}
-            w={'78%'}
+            w={'78.5%'}
             bg={useColorModeValue('gray.50', 'gray.900')}
             color={useColorModeValue('gray.700', 'gray.200')}>
             <Container

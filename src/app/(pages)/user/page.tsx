@@ -4,9 +4,9 @@ import BreadCrumbs from "@/app/components/breadcrumbs";
 import SmallWithSocial from "@/app/components/footer";
 import Header from "@/app/components/heading";
 import SidebarWithHeader from "@/app/components/sidebar";
-import TableLayout from "@/app/components/table";
+import { TableLayout, TableControl } from "@/app/components/table";
 import { fakeUsers, UserInterface } from "@/types/User";
-import { Box} from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import { ColumnDef, getCoreRowModel, getPaginationRowModel, PaginationState, useReactTable } from "@tanstack/react-table";
 import { info } from "console";
 import { access } from "fs";
@@ -25,7 +25,7 @@ const LinkItems: Array<LinkItemProps> = [
 const User = () => {
 
     const [dataUsers, setDataUsers] = useState<UserInterface[]>([])
-    const [{ pageIndex, pageSize}, setPagination] = useState<PaginationState>({pageIndex: 0, pageSize: 10})
+    const [{ pageIndex, pageSize }, setPagination] = useState<PaginationState>({ pageIndex: 0, pageSize: 10 })
     const [totalData, setTotalData] = useState<number>(0)
 
     useEffect(() => {
@@ -44,11 +44,11 @@ const User = () => {
 
     const pagination = useMemo(
         () => ({
-          pageIndex,
-          pageSize,
+            pageIndex,
+            pageSize,
         }),
         [pageIndex, pageSize]
-      );
+    );
 
     const columns = useMemo<ColumnDef<UserInterface>[]>(
         () => [
@@ -67,23 +67,23 @@ const User = () => {
                 footer: (props) => props.column.id
             },
             {
-                accessorFn: (row) => row.isActive,
-                id: "isActive",
+                accessorFn: (row) => row.role,
+                id: "role",
                 header: "Status",
                 cell: (info) => info.getValue(),
                 footer: (props) => props.column.id
             },
-            
+
         ],
         []
     );
-    
+
 
 
     const table = useReactTable({
         data: fakeUsers,
         columns: columns,
-        pageCount: totalData,
+        // pageCount: totalData,
         state: {
             pagination,
         },
@@ -92,8 +92,8 @@ const User = () => {
         getCoreRowModel: getCoreRowModel(),
         getPaginationRowModel: getPaginationRowModel(),
 
-        manualFiltering: true,
-        manualPagination: true
+        manualFiltering: false,
+        manualPagination: false
     })
 
     return (
@@ -101,9 +101,9 @@ const User = () => {
             <Header>
                 <BreadCrumbs items={LinkItems} />
             </Header>
-            
-            <Box >
-            <TableLayout />
+            <Box mb={"20"}>
+                <TableLayout table={table} />
+                <TableControl table={table}/>
             </Box>
 
             <SmallWithSocial />
